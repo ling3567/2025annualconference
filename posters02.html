@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>優秀海報論文 - 台灣醫事聯合技能發展學會2025年會</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 1px, transparent 1px),
+                              radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .back-btn {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-50%) translateX(-2px);
+        }
+        
+        .content {
+            padding: 25px 20px;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(15px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 4px solid #3498db;
+            position: relative;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #e74c3c;
+            border-radius: 2px;
+        }
+        
+        .award-section {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
+        }
+        
+        .posters-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .poster-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-left: 4px solid #3498db;
+            cursor: pointer;
+        }
+        
+        .poster-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-left-color: #e74c3c;
+        }
+        
+        .poster-card.highlighted {
+            border-left-color: #e74c3c;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(231, 76, 60, 0.2);
+        }
+        
+        .poster-card.highlighted .poster-header {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        
+        .poster-header {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .poster-number {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 8px 12px;
+            border-radius: 8px;
+            min-width: 40px;
+            text-align: center;
+            flex-shrink: 0;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .poster-title {
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin: 0;
+            color: white;
+            flex: 1;
+        }
+        
+        .poster-info {
+            padding: 20px;
+        }
+        
+        .info-row {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: flex-start;
+        }
+        
+        .label {
+            font-weight: 600;
+            color: #2c3e50;
+            min-width: 80px;
+            flex-shrink: 0;
+        }
+        
+        .value {
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .committee-feedback {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #ecf0f1;
+        }
+        
+        .feedback-label {
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .feedback-text {
+            color: #555;
+            line-height: 1.6;
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid #e74c3c;
+            transition: all 0.3s ease;
+        }
+        
+        .expand-hint {
+            text-align: center;
+            padding: 8px;
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .expand-hint:hover {
+            background: rgba(231, 76, 60, 0.15);
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        .footer p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .back-btn {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                margin-bottom: 15px;
+                align-self: flex-start;
+            }
+            
+            .header-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .poster-header {
+                padding: 12px 15px;
+                gap: 10px;
+            }
+            
+            .poster-number {
+                font-size: 1rem;
+                padding: 6px 10px;
+                min-width: 35px;
+            }
+            
+            .poster-title {
+                font-size: 0.9rem;
+            }
+            
+            .poster-info {
+                padding: 15px;
+            }
+            
+            .label {
+                min-width: 70px;
+                font-size: 0.9rem;
+            }
+            
+            .value {
+                font-size: 0.9rem;
+            }
+            
+            .feedback-text {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content {
+                padding: 15px;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+            }
+            
+            .award-section {
+                font-size: 1rem;
+                padding: 12px;
+            }
+            
+            .poster-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+            
+            .poster-number {
+                align-self: center;
+                min-width: auto;
+                padding: 6px 12px;
+            }
+            
+            .poster-title {
+                font-size: 0.85rem;
+                text-align: center;
+            }
+            
+            .info-row {
+                flex-direction: column;
+                gap: 2px;
+                margin-bottom: 8px;
+            }
+            
+            .label {
+                min-width: auto;
+                font-size: 0.85rem;
+            }
+            
+            .value {
+                font-size: 0.85rem;
+                padding-left: 10px;
+            }
+            
+            .feedback-text {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <a href="#" class="back-btn" id="backButton">
+                    ← 返回主頁
+                </a>
+                <h1>優秀海報論文</h1>
+                <div class="subtitle">台灣醫事聯合技能發展學會 2025年會</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="award-section">
+                🏆 入選優秀海報論文 - 含評審意見
+            </div>
+            
+            <div class="posters-grid">
+                <div class="poster-card">
+                    <div class="poster-header">
+                        <span class="poster-number">01</span>
+                        <h3 class="poster-title">運用EPAs整合式評量與數位教具強化執行動脈導管置放之教學成效</h3>
+                    </div>
+                    <div class="poster-info">
+                        <div class="info-row">
+                            <span class="label">通訊作者：</span>
+                            <span class="value">呂方君</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構：</span>
+                            <span class="value">亞東紀念醫院</span>
+                        </div>
+                        <div class="committee-feedback">
+                            <div class="feedback-label">💬 委員建議：</div>
+                            <div class="feedback-text">本研究結合EPAs信任等級與數位教具應用於動脈導管置放訓練，主題新穎且貼近臨床需求，設計嚴謹，評量方式多元，成果數據明確，充分展現教育介入的成效。
+                            
+建議未來可進一步擴展至其他侵入性技術，並持續追蹤學員在臨床長期表現，以強化研究的延展性與影響力。
+
+整體而言，本研究兼具創新與實務價值，對臨床技能培訓與醫學教育發展均具參考意義，值得肯定與推廣。</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="poster-card">
+                    <div class="poster-header">
+                        <span class="poster-number">02</span>
+                        <h3 class="poster-title">某教學醫院藥學實習計畫執行成效評估：人工智慧輔助分析初探</h3>
+                    </div>
+                    <div class="poster-info">
+                        <div class="info-row">
+                            <span class="label">通訊作者：</span>
+                            <span class="value">楊紫麟</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構：</span>
+                            <span class="value">屏東基督教醫院</span>
+                        </div>
+                        <div class="committee-feedback">
+                            <div class="feedback-label">💬 委員建議：</div>
+                            <div class="feedback-text">這篇研究摘要將人工智慧技術應用於藥學實習計畫的成效評估，特別在Mini-CEX測驗、輔導補強機制與團隊合作教案三個面向導入AI分析，具高度創新性與前瞻性。研究呈現數據完整，從語意分析到影像偵測參與度，展現出教育研究與智慧科技跨領域結合的價值。
+
+目前樣本數仍偏少，AI分析過程中仍需人工校對，Rubric工具的信效度也尚待進一步驗證。未來若能擴大樣本並跨院比較，並探討不同AI工具對教育成效分析的差異性，將使成果更具說服力與推廣性。
+
+整體而言，本研究充分展現AI輔助教育評估的潛力，對於藥學教育的創新與臨床教學品質提升都有實質貢獻。研究兼具創新性與應用性，值得肯定，也期待未來持續深化並推廣此模式。</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="poster-card">
+                    <div class="poster-header">
+                        <span class="poster-number">03</span>
+                        <h3 class="poster-title">Kahoot雲端即時回饋系統於臨床技能教學之應用研究---以物理治療實習生為例</h3>
+                    </div>
+                    <div class="poster-info">
+                        <div class="info-row">
+                            <span class="label">通訊作者：</span>
+                            <span class="value">黃婉筠</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構：</span>
+                            <span class="value">高雄榮民總醫院</span>
+                        </div>
+                        <div class="committee-feedback">
+                            <div class="feedback-label">💬 委員建議：</div>
+                            <div class="feedback-text">本研究將Kahoot雲端即時回饋系統應用於OSCE臨床技能教學，結合遊戲化學習提升學員動機與表現，主題具創新性且切合教育趨勢。研究設計嚴謹，採隨機分派與前後測比較，並使用ARCS動機量表及臨床技能測驗，能有效驗證介入成效，數據分析清楚且具說服力。
+
+研究對象為單一醫學中心的實習生，建議未來可擴大樣本來源至不同學校或醫院，以提升研究的普遍性。此外，亦可探討Kahoot在不同專業課程或長期學習成效的影響，補強研究深度。
+
+整體而言，本研究兼具教育創新與實務應用價值，成果顯示Kahoot在提升學習動機與技能表現上具明顯效果。此研究不僅展現遊戲化學習在臨床教育的潛力，也為後續推廣至其他醫療專業領域提供良好示範，值得肯定。</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="poster-card">
+                    <div class="poster-header">
+                        <span class="poster-number">04</span>
+                        <h3 class="poster-title">運用Virtual Humans AI提升重症加護病房護理師於臨床情境 Atrial Fibrillation 之判斷力</h3>
+                    </div>
+                    <div class="poster-info">
+                        <div class="info-row">
+                            <span class="label">通訊作者：</span>
+                            <span class="value">林靖芸</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構：</span>
+                            <span class="value">亞東紀念醫院</span>
+                        </div>
+                        <div class="committee-feedback">
+                            <div class="feedback-label">💬 委員建議：</div>
+                            <div class="feedback-text">本研究引入Virtual Humans AI平台模擬心房顫動臨床情境，結合高擬真互動與標準化作業流程，對新進護理師臨床判斷力與病人安全意識之培養具有高度創新性與實務價值。研究呈現完整，包括臨床任務設計、學員回饋與平台數據分析，顯示系統能有效提升學員的評估、判讀與應變能力。
+
+研究樣本數仍有限，部分學員在溝通與標準化流程上尚有改進空間。建議未來可擴大研究規模，並跨專業團隊（如醫師、呼吸治療師等）共同設計情境，以檢視跨職類學習成效。此外，也可持續追蹤系統使用後對臨床表現的長期影響。
+
+整體而言，本研究展現AI技術與臨床教育深度結合的潛力，不僅提升護理師臨床能力，也有助於病人安全與團隊合作。此研究兼具創新性與推廣價值，值得肯定並期待後續擴展應用。</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="poster-card">
+                    <div class="poster-header">
+                        <span class="poster-number">05</span>
+                        <h3 class="poster-title">全人照護：同理心課程結合密室逃脫之創新教學分享</h3>
+                    </div>
+                    <div class="poster-info">
+                        <div class="info-row">
+                            <span class="label">通訊作者：</span>
+                            <span class="value">劉名宏</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構：</span>
+                            <span class="value">國泰綜合醫院</span>
+                        </div>
+                        <div class="committee-feedback">
+                            <div class="feedback-label">💬 委員建議：</div>
+                            <div class="feedback-text">本研究將同理心課程與密室逃脫遊戲化學習相結合，設計沉浸式體驗情境，讓學員能從病人視角反思臨床應對，主題極具創新性與教育價值。課程設計包含角色扮演、解謎與反思討論，兼顧知識、情感與團隊合作，量化與質性成果皆顯示良好成效與高度滿意度。
+
+目前樣本數偏少，研究結果仍需更多驗證。建議未來可增加不同職類或更多批次學員參與，並進行長期追蹤，以確認學員同理心提升能否轉化為實際臨床行為。另外，若能進一步比較傳統教學與此創新模式之差異，將更具說服力。
+
+整體而言，本研究展現遊戲化學習融入全人照護教育的潛力，不僅提升同理心與臨床敏感度，也營造深刻的學習體驗。此課程兼具創意與實務意涵，值得肯定並持續推廣。</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="poster-card">
+                    <div class="poster-header">
+                        <span class="poster-number">06</span>
+                        <h3 class="poster-title">臨床實戰與科技，打造輸血學習新體驗</h3>
+                    </div>
+                    <div class="poster-info">
+                        <div class="info-row">
+                            <span class="label">通訊作者：</span>
+                            <span class="value">辜馨儀</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構：</span>
+                            <span class="value">馬偕紀念醫院</span>
+                        </div>
+                        <div class="committee-feedback">
+                            <div class="feedback-label">💬 委員建議：</div>
+                            <div class="feedback-text">本研究以H5P數位互動平台建構輸血技能教材，結合臨床流程與情境模擬，展現高度創新性與實務應用價值。研究設計完整，從需求分析、教材開發到前驅測試與多階段評估，結果顯示學員知識與臨床判斷力顯著提升，滿意度高且無輸血相關病安事件，具體呈現課程效益。
+
+雖然成果亮眼，但樣本集中於特定單位，建議未來可擴展至不同院所或跨職類群體，以驗證教材的普遍性與延展性。同時，亦可進一步追蹤學員在臨床實務中長期表現，以確認其對病人安全與臨床決策的持續影響。
+
+整體而言，本研究結合臨床實務與教育科技，成功展現數位互動教材在高風險技能教學中的價值。成果兼具創新性、可行性與推廣潛力，值得高度肯定，也期盼未來持續應用與擴展。</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="poster-card">
+                    <div class="poster-header">
+                        <span class="poster-number">07</span>
+                        <h3 class="poster-title">系統當機處理流程之OSCE教案設計與實施經驗分享</h3>
+                    </div>
+                    <div class="poster-info">
+                        <div class="info-row">
+                            <span class="label">通訊作者：</span>
+                            <span class="value">卓慧如</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構：</span>
+                            <span class="value">奇美醫院</span>
+                        </div>
+                        <div class="committee-feedback">
+                            <div class="feedback-label">💬 委員建議：</div>
+                            <div class="feedback-text">優點：本研究以LIS系統當機處理流程為主題，設計OSCE教案，聚焦在臨床常見卻高風險的資訊系統異常情境，主題新穎且高度貼近實務。研究設計完整，涵蓋檢體接收、異常處理、危急值通報及跨部門協作，並結合結構化評量與回饋，能有效檢驗醫檢師的臨床應變力與溝通協調能力。
+
+樣本數仍有限，部分細節如條碼使用與紙本報告仍有改善空間。建議未來可擴大對象至不同單位醫檢師，並進一步比較學員在模擬與實際臨床情境中的表現差異，以強化研究說服力。同時，也可考慮跨職類演練，提升跨團隊合作的應用價值。
+
+整體而言，本研究將OSCE評量與突發情境模擬有效結合，展現高度教育與實務價值，不僅有助於醫檢師臨床應變力的培養，也能進一步提升病人安全與醫療品質。成果值得肯定，具有持續推廣潛力。</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="poster-card">
+                    <div class="poster-header">
+                        <span class="poster-number">08</span>
+                        <h3 class="poster-title">實習學生沉浸式學習新體驗：密室逃脫應用於營養臨床教學</h3>
+                    </div>
+                    <div class="poster-info">
+                        <div class="info-row">
+                            <span class="label">通訊作者：</span>
+                            <span class="value">戴紋君</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構：</span>
+                            <span class="value">奇美醫院</span>
+                        </div>
+                        <div class="committee-feedback">
+                            <div class="feedback-label">💬 委員建議：</div>
+                            <div class="feedback-text">本研究將密室逃脫遊戲化學習融入營養臨床教學，設計四大主題空間，提升學生的參與感與臨場感，主題極具創新性。課程不僅讓學生運用所學知識解題，還能強化團隊合作與臨床判斷力，並透過多元回饋與量化數據驗證學習成效，成果顯示學生與教師皆高度滿意，展現良好的教育價值。
+
+目前研究主要聚焦於單次體驗，樣本數雖有一定規模，但仍需更多梯次或長期追蹤，以評估此教學模式對學生臨床應用與專業能力的持續影響。未來亦可比較此模式與傳統實習方式之差異，增強研究的普遍性與說服力。
+
+整體而言，本研究展現沉浸式遊戲化學習在營養教育的創新潛力，不僅提升學習動機，也強化學生的臨床應用與合作能力。成果具實用性與推廣性，值得高度肯定並持續發展。</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="poster-card">
+                    <div class="poster-header">
+                        <span class="poster-number">09</span>
+                        <h3 class="poster-title">從臨床神經心理學的學理到實踐：以數位心理衛教強化跨專業團隊對家屬調適支持之行動研究</h3>
+                    </div>
+                    <div class="poster-info">
+                        <div class="info-row">
+                            <span class="label">通訊作者：</span>
+                            <span class="value">黃文琳</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構：</span>
+                            <span class="value">國立成功大學醫學院附設醫院</span>
+                        </div>
+                        <div class="committee-feedback">
+                            <div class="feedback-label">💬 委員建議：</div>
+                            <div class="feedback-text">本研究以臨床神經心理學理為基礎，發展數位心理衛教素材，並透過行動研究方式，協助跨專業團隊理解與回應家屬心理調適需求。研究主題兼具理論深度與臨床實用性，完整呈現從需求分析、策略建構到介入評估的過程，結果數據明確顯示心理調適面向與團隊共識皆顯著提升，展現跨領域合作的價值。
+
+目前樣本數較少，且主要聚焦於單一疾病與特定團隊。建議未來可擴大研究範圍至不同疾病類別或跨院比較，並進一步追蹤介入後對病人家屬長期心理調適與團隊行為改變的影響，以增強研究說服力與延展性。
+
+整體而言，本研究成功將心理專業知能數位化並導入跨專業教育，不僅提升團隊對家屬支持的敏感度與能力，也展現高度創新性與推廣潛力。成果值得肯定，對臨床教育與全人照護均具重要啟發意義。</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="poster-card">
+                    <div class="poster-header">
+                        <span class="poster-number">10</span>
+                        <h3 class="poster-title">以共識為核心：提升醫事放射OSCE考官評分一致性的訓練模式</h3>
+                    </div>
+                    <div class="poster-info">
+                        <div class="info-row">
+                            <span class="label">通訊作者：</span>
+                            <span class="value">范芳郡</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構：</span>
+                            <span class="value">臺北醫學大學附設醫院</span>
+                        </div>
+                        <div class="committee-feedback">
+                            <div class="feedback-label">💬 委員建議：</div>
+                            <div class="feedback-text">本研究聚焦於OSCE考官評分一致性的問題，提出共識式訓練模式(CBETM)，設計包含標準化影片訓練、考前校準、現場共識評分與考後數據檢討，主題新穎且切合教育實務需求。研究數據顯示考官間評分差異顯著下降，並提升考核公平性與信心，成果具體且有說服力。
+
+目前研究樣本主要集中於醫事放射領域，建議未來可擴展至其他醫學專業，以檢視CBETM模式的普適性。同時，若能進一步比較與AI輔助評分等新興技術的整合，將使研究更具前瞻性與延伸性。
+
+整體而言，本研究以嚴謹設計回應OSCE評量的核心挑戰，成果兼具創新性與實務價值，不僅提升評分信效度，也對臨床教育評估公平性有重大貢獻。研究值得高度肯定，並期待後續推廣與跨領域應用。</div>
+                        </div>
+                    </div>
+                </div>床實戰與科技，打造輸血學習新體驗</h3>
+                    </div>
+                    <div class="poster-info">
+                        <div class="info-row">
+                            <span class="label">通訊作者：</span>
+                            <span class="value">辜馨儀</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構：</span>
+                            <span class="value">馬偕紀念醫院</span>
+                        </div>
+                        <div class="committee-feedback">
+                            <div class="feedback-label">💬 委員建議：</div>
+                            <div class="feedback-text">本研究結合臨床實戰與現代科技，創新設計輸血學習體驗，具有良好的教學設計理念與實務應用價值。建議持續深化科技應用層面，並評估學習成效的量化指標，以提升教學品質與學習成果。</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="poster-card">
+                    <div class="poster-header">
+                        <span class="poster-number">07</span>
+                        <h3 class="poster-title">系統當機處理流程之OSCE教案設計與實施經驗分享</h3>
+                    </div>
+                    <div class="poster-info">
+                        <div class="info-row">
+                            <span class="label">通訊作者：</span>
+                            <span class="value">卓慧如</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構：</span>
+                            <span class="value">奇美醫院</span>
+                        </div>
+                        <div class="committee-feedback">
+                            <div class="feedback-label">💬 委員建議：</div>
+                            <div class="feedback-text">本研究針對系統當機處理流程設計OSCE教案，具有高度實務性與臨床相關性。教案設計完整，實施經驗豐富，對於提升醫事人員應變能力具有重要意義。建議擴大應用範圍，並建立標準化評估工具。</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="poster-card">
+                    <div class="poster-header">
+                        <span class="poster-number">08</span>
+                        <h3 class="poster-title">實習學生沉浸式學習新體驗：密室逃脫應用於營養臨床教學</h3>
+                    </div>
+                    <div class="poster-info">
+                        <div class="info-row">
+                            <span class="label">通訊作者：</span>
+                            <span class="value">戴紋君</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構：</span>
+                            <span class="value">奇美醫院</span>
+                        </div>
+                        <div class="committee-feedback">
+                            <div class="feedback-label">💬 委員建議：</div>
+                            <div class="feedback-text">創新運用密室逃脫概念於營養臨床教學，提供實習學生沉浸式學習體驗，教學方法新穎且富有趣味性。建議進一步評估學習成效，並發展適用於不同專業領域的教學模式，以擴大應用效益。</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="poster-card">
+                    <div class="poster-header">
+                        <span class="poster-number">09</span>
+                        <h3 class="poster-title">從臨床神經心理學的學理到實踐：以數位心理衛教強化跨專業團隊對家屬調適支持之行動研究</h3>
+                    </div>
+                    <div class="poster-info">
+                        <div class="info-row">
+                            <span class="label">通訊作者：</span>
+                            <span class="value">黃文琳</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構：</span>
+                            <span class="value">國立成功大學醫學院附設醫院</span>
+                        </div>
+                        <div class="committee-feedback">
+                            <div class="feedback-label">💬 委員建議：</div>
+                            <div class="feedback-text">本研究從理論到實踐，運用數位心理衛教強化跨專業團隊合作，對家屬調適支持具有重要臨床意義。研究設計完整，實務應用性佳，建議持續追蹤長期成效，並建立可複製的實施模式。</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="poster-card">
+                    <div class="poster-header">
+                        <span class="poster-number">10</span>
+                        <h3 class="poster-title">以共識為核心：提升醫事放射OSCE考官評分一致性的訓練模式</h3>
+                    </div>
+                    <div class="poster-info">
+                        <div class="info-row">
+                            <span class="label">通訊作者：</span>
+                            <span class="value">范芳郡</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構：</span>
+                            <span class="value">臺北醫學大學附設醫院</span>
+                        </div>
+                        <div class="committee-feedback">
+                            <div class="feedback-label">💬 委員建議：</div>
+                            <div class="feedback-text">本研究聚焦於提升OSCE考官評分一致性，以共識建立為核心發展訓練模式，對於考試品質保證具有重要意義。研究方法嚴謹，成果具有推廣價值，建議建立標準化訓練教材與持續品質監控機制。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 台灣醫事聯合技能發展學會 版權所有</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                // 卡片互動效果
+                const posterCards = document.querySelectorAll('.poster-card');
+                
+                // 延遲顯示動畫
+                posterCards.forEach(function(card, index) {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(30px)';
+                    
+                    setTimeout(function() {
+                        card.style.transition = 'all 0.6s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 150 * (index + 1));
+                });
+                
+                // 卡片點擊效果
+                posterCards.forEach(function(card) {
+                    card.addEventListener('click', function() {
+                        // 移除其他卡片的高亮
+                        posterCards.forEach(function(c) {
+                            c.classList.remove('highlighted');
+                        });
+                        
+                        // 高亮當前卡片
+                        this.classList.add('highlighted');
+                        
+                        // 捲動到卡片頂部
+                        this.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // 3秒後移除高亮
+                        setTimeout(function() {
+                            card.classList.remove('highlighted');
+                        }, 3000);
+                    });
+                });
+                
+        // 下載優秀海報論文摘要功能
+        function downloadPosterAbstracts() {
+            const button = event.target;
+            const originalText = button.innerHTML;
+            
+            // 顯示下載狀態
+            button.innerHTML = '⏳ 準備下載中...';
+            button.disabled = true;
+            
+            setTimeout(function() {
+                button.innerHTML = '✅ 已通知下載';
+                
+                setTimeout(function() {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                }, 2500);
+                
+                // 顯示下載提示
+                showNotification('正在準備「優秀海報論文摘要全文」下載，請聯繫會務人員取得完整檔案。');
+            }, 1000);
+        }
+        
+        // 通知系統
+        function showNotification(message) {
+            let notification = document.getElementById('download-notification');
+            if (!notification) {
+                notification = document.createElement('div');
+                notification.id = 'download-notification';
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: linear-gradient(135deg, #27ae60, #2ecc71);
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 25px;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                    z-index: 1000;
+                    font-weight: 600;
+                    max-width: 90%;
+                    text-align: center;
+                    opacity: 0;
+                    transition: all 0.3s ease;
+                `;
+                document.body.appendChild(notification);
+            }
+            
+            notification.textContent = message;
+            notification.style.opacity = '1';
+            notification.style.transform = 'translateX(-50%) translateY(0)';
+            
+            setTimeout(function() {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(-50%) translateY(-20px)';
+            }, 4000);
+        }
+                
+                // 返回按鈕功能
+                const backBtn = document.getElementById('backButton');
+                if (backBtn) {
+                    backBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        if (document.referrer && document.referrer.includes(window.location.host)) {
+                            history.back();
+                        } else {
+                            // 如果沒有來源頁面，返回主頁
+                            window.location.href = 'index.html';
+                        }
+                    });
+                }
+            } catch (error) {
+                console.error('JavaScript執行錯誤:', error);
+            }
+        });
+    </script>
+</body>
+</html>
