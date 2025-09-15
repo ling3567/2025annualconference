@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Poster 海報論文 - 台灣醫事聯合技能發展學會2025年會</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 1px, transparent 1px),
+                              radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .back-btn {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-50%) translateX(-2px);
+        }
+        
+        .content {
+            padding: 25px 20px;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(15px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 4px solid #3498db;
+            position: relative;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #e74c3c;
+            border-radius: 2px;
+        }
+        
+        .award-section {
+            background: linear-gradient(135deg, #16a085, #27ae60);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px rgba(22, 160, 133, 0.3);
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, #ecf0f1, #d5dbdb);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 25px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .stats-section h3 {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .stats-section p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        .search-box {
+            background: white;
+            border: 2px solid #ecf0f1;
+            border-radius: 25px;
+            padding: 12px 20px;
+            margin-bottom: 25px;
+            font-size: 1rem;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
+        }
+        
+        .eposters-grid {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .eposter-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #16a085;
+        }
+        
+        .eposter-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            border-left-color: #e74c3c;
+        }
+        
+        .eposter-header {
+            background: linear-gradient(135deg, #16a085, #27ae60);
+            color: white;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .eposter-number {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 4px 8px;
+            border-radius: 6px;
+            min-width: 55px;
+            text-align: center;
+            flex-shrink: 0;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .eposter-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin: 0;
+            color: white;
+            flex: 1;
+        }
+        
+        .eposter-info {
+            padding: 12px 15px;
+        }
+        
+        .info-row {
+            display: flex;
+            margin-bottom: 6px;
+            align-items: flex-start;
+            font-size: 0.85rem;
+        }
+        
+        .label {
+            font-weight: 600;
+            color: #2c3e50;
+            min-width: 65px;
+            flex-shrink: 0;
+        }
+        
+        .value {
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        .footer p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .back-btn {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                margin-bottom: 15px;
+                align-self: flex-start;
+            }
+            
+            .header-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .eposter-header {
+                padding: 10px 12px;
+                gap: 8px;
+            }
+            
+            .eposter-number {
+                font-size: 0.8rem;
+                padding: 3px 6px;
+                min-width: 50px;
+            }
+            
+            .eposter-title {
+                font-size: 0.8rem;
+            }
+            
+            .eposter-info {
+                padding: 10px 12px;
+            }
+            
+            .info-row {
+                font-size: 0.8rem;
+                margin-bottom: 5px;
+            }
+            
+            .label {
+                min-width: 60px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content {
+                padding: 15px;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+            }
+            
+            .award-section {
+                font-size: 1rem;
+                padding: 12px;
+            }
+            
+            .eposter-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 6px;
+            }
+            
+            .eposter-number {
+                align-self: center;
+            }
+            
+            .eposter-title {
+                text-align: center;
+                font-size: 0.75rem;
+            }
+            
+            .info-row {
+                flex-direction: column;
+                gap: 2px;
+                margin-bottom: 4px;
+            }
+            
+            .label {
+                min-width: auto;
+                font-size: 0.75rem;
+            }
+            
+            .value {
+                font-size: 0.75rem;
+                padding-left: 10px;
+            }
+        }
+        
+        .highlight {
+            background-color: #fff3cd !important;
+            border-color: #ffeaa7 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <a href="#" class="back-btn" id="backButton">
+                    ← 返回主頁
+                </a>
+                <h1>E-Poster 海報論文</h1>
+                <div class="subtitle">台灣醫事聯合技能發展學會 2025年會</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="award-section">
+                💻 數位海報論文展示
+            </div>
+            
+            <div class="stats-section">
+                <h3>📊 統計資訊</h3>
+                <p>共收錄 62 篇 E-Poster 數位海報論文</p>
+            </div>
+            
+            <input type="text" class="search-box" placeholder="🔍 搜尋論文題目、作者或機構..." id="searchInput">
+            
+            <div class="eposters-grid" id="epostersGrid">
+                <!-- E-Poster 卡片將由 JavaScript 動態生成 -->
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 台灣醫事聯合技能發展學會 版權所有</p>
+        </div>
+    </div>
+
+    <script>
+        // E-Poster 數據
+        const epostersData = [
+            { number: "EP-01", author: "林靖芸", institution: "亞東紀念醫院", title: "高擬真模擬結合科技設備提升ICU醫護人員急救執行力之教案訓練模式" },
+            { number: "EP-02", author: "李怡瑩", institution: "亞東紀念醫院", title: "結合DOPS與OSCE提升加護病房醫護人員MDI給藥正確性之教學成效" },
+            { number: "EP-03", author: "林香君", institution: "亞東紀念醫院", title: "提升病房護理人員於加護病房交叉訓練學習成效" },
+            { number: "EP-04", author: "林香君", institution: "亞東紀念醫院", title: "運用Mini-CEX評分量表提升護理實習生於加護病房之臨床學習成效" },
+            { number: "EP-05", author: "徐皓怡", institution: "亞東紀念醫院", title: "運用護理創新提升醫療儀器清潔消毒之改善成效" },
+            { number: "EP-06", author: "姚舒婷", institution: "亞東紀念醫院", title: "應用高擬真模擬與TRM訓練提升新進人員ECMO故障處置能力之跨域教學模式" },
+            { number: "EP-07", author: "陳雅婷", institution: "亞東紀念醫院", title: "運用人工智慧(AI)提升護理人員身體評估效率：縮短文書作業時間" },
+            { number: "EP-08", author: "謝明祥", institution: "奇美醫院", title: "透過雲端E-Learning提升醫事放射實習生X光影像判讀能力" },
+            { number: "EP-09", author: "黃建中", institution: "奇美醫院", title: "智慧教育：生成式AI打造個人學習歷程與分析建議" },
+            { number: "EP-10", author: "吳泰進", institution: "嘉義長庚紀念醫院", title: "客觀結構式臨床技能測驗(OSCE)考官評分一致性探討" },
+            { number: "EP-11", author: "黃薪蓉", institution: "義大醫院", title: "情境式電影對提升乳房攝影全人照護之成效" },
+            { number: "EP-12", author: "夏美玲", institution: "亞東紀念醫院", title: "運用多媒體影片指導最後一哩護理實習學生執行吞嚥評估之成效" },
+            { number: "EP-13", author: "蔡玉梅", institution: "美和科技大學", title: "運用虛擬病人於病歷導讀教學之行動研究" },
+            { number: "EP-14", author: "曾煌証", institution: "中壢天晟醫院", title: "透過藥物諮詢OSCE訓練具有判斷藥物交互作用、解釋與處理的專業能力之藥師" },
+            { number: "EP-15", author: "李鸞萱", institution: "亞東紀念醫院", title: "提升護理實習生執行動脈導管(Arterial line, A-line)照護能力" },
+            { number: "EP-16", author: "陳意婷", institution: "亞東紀念醫院", title: "運用EPAs教學模式提升兩年期新進護理人員於閉環式條碼輸血流程中之實務勝任力" },
+            { number: "EP-17", author: "林庭伊", institution: "亞東紀念醫院", title: "應用直接觀察操作型技術評量法(DOPS)於加護病房新進護理人員執行 A-Line 抽血技術正確率之成效探討" },
+            { number: "EP-18", author: "胡月華", institution: "亞東紀念醫院", title: "運用DOPS評量兩年期學員執行高齡住院病人單次導尿之正確性" },
+            { number: "EP-19", author: "邱旅揚", institution: "奇美醫院", title: "「玩」中「學」~運用遊戲化教學於護理臨床教師培育課程之成效探討" },
+            { number: "EP-20", author: "溫漢忠", institution: "義大醫院", title: "X光攝影實境角色扮演遊戲教學：LARP劇本殺" },
+            { number: "EP-21", author: "劉怡妏", institution: "亞東紀念醫院", title: "數位轉型下的護理革新：AI應用於專科護理師病歷書寫之探討" },
+            { number: "EP-22", author: "洪永東", institution: "奇美醫院", title: "運用DOPS+口述評量臨床服務組抽血檢驗英文服務教育訓練" },
+            { number: "EP-23", author: "林婉如", institution: "台南新樓醫院", title: "多元教學策略對急診護理師創傷評估與處置能力之成效評估" },
+            { number: "EP-24", author: "李建勳", institution: "淡水馬偕紀念醫院", title: "運用客觀結構化臨床考試(OSCE)評估物理治療UGY實習生對全人醫療的概念，以中風患者為例" },
+            { number: "EP-25", author: "彭姿蓉", institution: "台北慈濟醫院", title: "平行病歷導入全人藥事照護門診：促進反思與同理心的教學實踐" },
+            { number: "EP-26", author: "王勝蘭", institution: "亞東紀念醫院", title: "運用虛擬實境(VR)提升ICU護理師學習動機與臨床技能" },
+            { number: "EP-27", author: "何婧嫙", institution: "中國醫藥大學附設醫院", title: "Preliminary Exploration of the Effectiveness of a Self-Directed Learning Program Using Virtual Patients to Assist in History-Taking Skills" },
+            { number: "EP-28", author: "王明淑", institution: "馬偕紀念醫院", title: "結合遊戲卡牌於標準化病人訓練演繹情境之課程設計與初探" },
+            { number: "EP-29", author: "張凱晴", institution: "亞東紀念醫院", title: "運用DOPS評量最後一哩護生學習拍痰背心於肺炎個案肺部清除術之成效" },
+            { number: "EP-30", author: "陳沛涵", institution: "台大醫院雲林分院", title: "Exploring the Implementation of e-Portfolio in Competency-Based Learning Assessment for Medical Laboratory Scientists: A Preliminary Study on Digital Reflection and Clinical Skill Development Trajectories" },
+            { number: "EP-31", author: "王明淑", institution: "馬偕紀念醫院", title: "融入多元性別議題之標準化病人進階訓練課程設計與初探" },
+            { number: "EP-32", author: "劉昱菁", institution: "奇美醫院", title: "頸掛式手機創新OSCE教學回饋---教師觀點與分析" },
+            { number: "EP-33", author: "陳又齊", institution: "奇美醫院", title: "藥學實習生OSCE評估：提升臨床技能的實證研究" },
+            { number: "EP-34", author: "曲天尚", institution: "臺北醫學大學附設醫院", title: "OSCE臨床技能評量中數位影音與評核訓練的應用：以Port-A為例" },
+            { number: "EP-35", author: "楊偲漢", institution: "高雄醫學大學附設中和紀念醫院", title: "探討運用數位教學平台進行職場導向評量之教師一致性表現" },
+            { number: "EP-36", author: "詹文祥", institution: "中國醫藥大學新竹附設醫院", title: "從模擬測驗中探討評分者一致性與評量敏感度：以準專科護理師OSCE為例" },
+            { number: "EP-37", author: "鄭勻卉", institution: "淡水馬偕紀念醫院", title: "虛擬實境結合模擬機器人於物理治療實習生腦中風臨床評估教學之應用初探" },
+            { number: "EP-38", author: "張鈴艷", institution: "奇美醫院", title: "運用『問題導向學習模式』於增進實習生臨床推理與照護知能之成效初探" },
+            { number: "EP-39", author: "蘇怡靜", institution: "淡水馬偕紀念醫院", title: "運用客觀結構式臨床技能測驗評估二年期營養師臨床營養照護課程之學習成效" },
+            { number: "EP-40", author: "向慧芬", institution: "臺北醫學大學附設醫院", title: "技術影片共識評分與標準化訓練之教學改善方案" },
+            { number: "EP-41", author: "顔如鈺", institution: "亞東紀念醫院", title: "運用多元策略於護理實習生執行氣切護理之成效" },
+            { number: "EP-42", author: "陳佳玲", institution: "郭綜合醫院", title: "南部某地區醫院的藥學EPAs之推廣、建置與執行" },
+            { number: "EP-43", author: "林宥辰", institution: "國泰綜合醫院", title: "應用AI輔助系統提升臨床教師於實習生國考模擬試題訂正之效率與滿意度之研究" },
+            { number: "EP-44", author: "黃美珠", institution: "中國醫藥大學附設醫院", title: "以客觀結構式臨床技能測驗(OSCE)探討吸入劑衛教之教學成效分析" },
+            { number: "EP-45", author: "陳婷婷", institution: "亞東紀念醫院", title: "運用實體教學策略提升內科加護病房護理人員化學治療靜脈給藥正確性" },
+            { number: "EP-46", author: "黃芝瑩", institution: "亞東紀念醫院", title: "運用多元策略提升內科加護病房護理人員對連續性腎臟替代療法照護能力" },
+            { number: "EP-47", author: "柳語蓉", institution: "亞東紀念醫院", title: "直接觀察操作型技術評量法(DOPS)評估二年期PGY新進護理人員執行氣管內管照護之學習成效" },
+            { number: "EP-48", author: "陳妍希", institution: "亞東紀念醫院", title: "運用情境教學提升內科加護病房兩年期護理人員的給藥正確率" },
+            { number: "EP-49", author: "蘇琬茲", institution: "台南新樓醫院", title: "導入組合式教學設計提升內科新進護理師中心靜脈導管照護能力" },
+            { number: "EP-50", author: "黃鈺芳", institution: "亞東紀念醫院", title: "運用實體教學策略提升加護病房護理人員之腦室外引流(EVD)照護能力" },
+            { number: "EP-51", author: "陳宣菀", institution: "亞東紀念醫院", title: "受訓中專科護理師執行股動脈鞘管拔除的完整處置流程" },
+            { number: "EP-52", author: "顏仲逸", institution: "奇美醫院", title: "導入OSCE於GLP自動化軌道訓練之成效評估：一項實證研究" },
+            { number: "EP-53", author: "王淑鈴", institution: "淡水馬偕紀念醫院", title: "運用OSCE教學模式提升產房新生兒即刻照護能力" },
+            { number: "EP-54", author: "蘇秀悅", institution: "臺北醫學大學附設醫院", title: "比較OSCE與多種評核工具對營養實習生學習成效之探討" },
+            { number: "EP-55", author: "林恬敏", institution: "國泰綜合醫院", title: "結合AI自然語言提示技術改善臨床教師DOPS質性回饋完整性" },
+            { number: "EP-56", author: "郭穎穎", institution: "恩主公醫院", title: "降低精神科門診病人未返診率" },
+            { number: "EP-57", author: "陳佳玲", institution: "郭綜合醫院", title: "於畢業後一般醫學訓練計畫社區醫學課程導入成癮防治課程之成效" },
+            { number: "EP-58", author: "劉翠娟", institution: "奇美醫院", title: "利用跨領域OSCE教學模式提升學齡期1型糖尿病兒童之全人照護品質" },
+            { number: "EP-59", author: "張筠菡", institution: "中國醫藥大學新竹附設醫院", title: "以OSCE評估行政人員CPR技能：QCPR APP介入之成效與維持" },
+            { number: "EP-60", author: "郭穎穎", institution: "恩主公醫院", title: "運用多元策略提升精神科日間病房醫療團隊人員暴力事件處置能力" },
+            { number: "EP-61", author: "施美玲", institution: "台南新樓醫院", title: "運用心智圖提升新進人員輸血備血認知－「輸血備血拼樂吧！」" },
+            { number: "EP-62", author: "王喜盈", institution: "台南新樓醫院", title: "運用創意教學提升護理人員對心導管術前及術後照護訓練之應用與成效" }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                // 渲染所有 E-Poster 卡片
+                renderEposters(epostersData);
+                
+                // 搜尋功能
+                const searchInput = document.getElementById('searchInput');
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase().trim();
+                    if (searchTerm === '') {
+                        renderEposters(epostersData);
+                    } else {
+                        const filteredData = epostersData.filter(item => 
+                            item.title.toLowerCase().includes(searchTerm) ||
+                            item.author.toLowerCase().includes(searchTerm) ||
+                            item.institution.toLowerCase().includes(searchTerm) ||
+                            item.number.toLowerCase().includes(searchTerm)
+                        );
+                        renderEposters(filteredData);
+                        
+                        // 高亮搜尋結果
+                        setTimeout(function() {
+                            highlightSearchResults(searchTerm);
+                        }, 100);
+                    }
+                });
+                
+                // 返回按鈕功能
+                const backBtn = document.getElementById('backButton');
+                if (backBtn) {
+                    backBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        if (document.referrer && document.referrer.includes(window.location.host)) {
+                            history.back();
+                        } else {
+                            window.location.href = 'index.html';
+                        }
+                    });
+                }
+                
+            } catch (error) {
+                console.error('JavaScript執行錯誤:', error);
+            }
+        });
+
+        function renderEposters(data) {
+            const grid = document.getElementById('epostersGrid');
+            grid.innerHTML = '';
+            
+            data.forEach(function(item, index) {
+                const card = document.createElement('div');
+                card.className = 'eposter-card';
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                card.innerHTML = `
+                    <div class="eposter-header">
+                        <span class="eposter-number">${item.number}</span>
+                        <h3 class="eposter-title">${item.title}</h3>
+                    </div>
+                    <div class="eposter-info">
+                        <div class="info-row">
+                            <span class="label">作者：</span>
+                            <span class="value">${item.author}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構：</span>
+                            <span class="value">${item.institution}</span>
+                        </div>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+                
+                // 延遲動畫
+                setTimeout(function() {
+                    card.style.transition = 'all 0.4s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 50 * (index + 1));
+                
+                // 點擊效果
+                card.addEventListener('click', function() {
+                    // 移除其他卡片的高亮
+                    document.querySelectorAll('.eposter-card').forEach(function(c) {
+                        c.classList.remove('highlight');
+                    });
+                    
+                    // 高亮當前卡片
+                    this.classList.add('highlight');
+                    
+                    // 捲動到卡片頂部
+                    this.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                    
+                    // 3秒後移除高亮
+                    setTimeout(function() {
+                        card.classList.remove('highlight');
+                    }, 3000);
+                });
+            });
+            
+            // 更新統計資訊
+            const statsSection = document.querySelector('.stats-section p');
+            if (data.length === epostersData.length) {
+                statsSection.textContent = `共收錄 ${data.length} 篇 E-Poster 數位海報論文`;
+            } else {
+                statsSection.textContent = `找到 ${data.length} 篇符合條件的論文（共 ${epostersData.length} 篇）`;
+            }
+        }
+
+        function highlightSearchResults(searchTerm) {
+            const cards = document.querySelectorAll('.eposter-card');
+            cards.forEach(function(card) {
+                const titleElement = card.querySelector('.eposter-title');
+                const authorElement = card.querySelector('.value');
+                const institutionElement = card.querySelectorAll('.value')[1];
+                
+                // 恢復原始文字
+                const originalTitle = titleElement.getAttribute('data-original') || titleElement.textContent;
+                const originalAuthor = authorElement.getAttribute('data-original') || authorElement.textContent;
+                const originalInstitution = institutionElement.getAttribute('data-original') || institutionElement.textContent;
+                
+                // 儲存原始文字
+                titleElement.setAttribute('data-original', originalTitle);
+                authorElement.setAttribute('data-original', originalAuthor);
+                institutionElement.setAttribute('data-original', originalInstitution);
+                
+                // 高亮關鍵字
+                if (searchTerm) {
+                    const regex = new RegExp(`(${searchTerm})`, 'gi');
+                    titleElement.innerHTML = originalTitle.replace(regex, '<mark style="background: #ffeb3b; padding: 1px 2px; border-radius: 2px;">$1</mark>');
+                    authorElement.innerHTML = originalAuthor.replace(regex, '<mark style="background: #ffeb3b; padding: 1px 2px; border-radius: 2px;">$1</mark>');
+                    institutionElement.innerHTML = originalInstitution.replace(regex, '<mark style="background: #ffeb3b; padding: 1px 2px; border-radius: 2px;">$1</mark>');
+                } else {
+                    titleElement.innerHTML = originalTitle;
+                    authorElement.innerHTML = originalAuthor;
+                    institutionElement.innerHTML = originalInstitution;
+                }
+            });
+        }
+
+        // 鍵盤導航支援
+        document.addEventListener('keydown', function(e) {
+            const cards = document.querySelectorAll('.eposter-card');
+            const currentHighlighted = document.querySelector('.eposter-card.highlight');
+            let currentIndex = currentHighlighted ? Array.from(cards).indexOf(currentHighlighted) : -1;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                currentIndex = (currentIndex + 1) % cards.length;
+                cards[currentIndex].click();
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                currentIndex = currentIndex <= 0 ? cards.length - 1 : currentIndex - 1;
+                cards[currentIndex].click();
+            }
+        });
+    </script>
+</body>
+</html>
