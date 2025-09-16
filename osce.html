@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>臨床技能測驗(OSCE)優良教案 - 台灣醫事聯合臨床技能發展學會2025會員大會暨學術研討會</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 1px, transparent 1px),
+                              radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .back-btn {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-50%) translateX(-2px);
+        }
+        
+        .content {
+            padding: 25px 20px;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(15px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 4px solid #3498db;
+            position: relative;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #e74c3c;
+            border-radius: 2px;
+        }
+        
+        .award-section {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px rgba(142, 68, 173, 0.3);
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, #ecf0f1, #d5dbdb);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 25px;
+            border-left: 4px solid #8e44ad;
+        }
+        
+        .stats-section h3 {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .stats-section p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        .description-section {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 4px solid #ff9800;
+        }
+        
+        .description-section h3 {
+            color: #e65100;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .description-section p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        
+        .cases-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .case-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #8e44ad;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-left-color: #e74c3c;
+        }
+        
+        .case-header {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .case-number {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 8px 12px;
+            border-radius: 8px;
+            min-width: 50px;
+            text-align: center;
+            flex-shrink: 0;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .case-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin: 0;
+            color: white;
+            flex: 1;
+        }
+        
+        .case-info {
+            padding: 20px;
+        }
+        
+        .info-row {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }
+        
+        .label {
+            font-weight: 600;
+            color: #2c3e50;
+            min-width: 90px;
+            flex-shrink: 0;
+        }
+        
+        .value {
+            color: #555;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+        
+        .highlight-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        .footer p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .back-btn {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                margin-bottom: 15px;
+                align-self: flex-start;
+            }
+            
+            .header-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .case-header {
+                padding: 12px 15px;
+                gap: 10px;
+            }
+            
+            .case-number {
+                font-size: 1rem;
+                padding: 6px 10px;
+                min-width: 45px;
+            }
+            
+            .case-title {
+                font-size: 1rem;
+            }
+            
+            .case-info {
+                padding: 15px;
+            }
+            
+            .label {
+                min-width: 80px;
+                font-size: 0.9rem;
+            }
+            
+            .value {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content {
+                padding: 15px;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+            }
+            
+            .award-section {
+                font-size: 1rem;
+                padding: 12px;
+            }
+            
+            .case-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+            
+            .case-number {
+                align-self: center;
+            }
+            
+            .case-title {
+                text-align: center;
+                font-size: 0.9rem;
+            }
+            
+            .info-row {
+                flex-direction: column;
+                gap: 4px;
+                margin-bottom: 10px;
+            }
+            
+            .label {
+                min-width: auto;
+                font-size: 0.85rem;
+            }
+            
+            .value {
+                font-size: 0.85rem;
+                padding-left: 10px;
+            }
+        }
+        
+        .highlight {
+            background-color: #f8f9fa !important;
+            border-color: #8e44ad !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(142, 68, 173, 0.2) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <a href="#" class="back-btn" id="backButton">
+                    ← 返回主頁
+                </a>
+                <h1>臨床技能測驗(OSCE)優良教案</h1>
+                <div class="subtitle">台灣醫事聯合臨床技能發展學會2025會員大會暨學術研討會</div>
+                <div class="subtitle" style="font-size: 0.85rem; margin-top: 4px; opacity: 0.85;">數位轉型×跨域共融   重塑臨床技能教育的新未來</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="cases-grid" id="casesGrid">
+                <!-- OSCE 教案卡片將由 JavaScript 動態生成 -->
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 台灣醫事聯合技能發展學會 版權所有</p>
+        </div>
+    </div>
+
+    <script>
+        // OSCE 教案數據
+        const casesData = [
+            {
+                number: "01",
+                contact: "謝梨君",
+                institution: "中山醫學大學附設醫院",
+                title: "肌少症運動處方之全人照護"
+            },
+            {
+                number: "02",
+                contact: "陳璟綺",
+                institution: "奇美醫院",
+                title: "中風後吞嚥困難之復健團隊全人照護"
+            },
+            {
+                number: "03",
+                contact: "劉倩秀",
+                institution: "輔仁大學",
+                title: "屈指肌腱修復之術後評估與復健介入"
+            },
+            {
+                number: "04",
+                contact: "黃淑芬",
+                institution: "奇美醫院",
+                title: "敘事關懷-肺癌全人跨領域團隊照護"
+            },
+            {
+                number: "05",
+                contact: "劉翠娟",
+                institution: "奇美醫院",
+                title: "學齡期(6-12歲)1型糖尿病(T1DM)孩童跨領域全人照護"
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                // 渲染所有 OSCE 教案卡片
+                renderCases(casesData);
+                
+                // 返回按鈕功能
+                const backBtn = document.getElementById('backButton');
+                if (backBtn) {
+                    backBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        if (document.referrer && document.referrer.includes(window.location.host)) {
+                            history.back();
+                        } else {
+                            window.location.href = 'index.html';
+                        }
+                    });
+                }
+                
+            } catch (error) {
+                console.error('JavaScript執行錯誤:', error);
+            }
+        });
+
+        function renderCases(data) {
+            const grid = document.getElementById('casesGrid');
+            grid.innerHTML = '';
+            
+            data.forEach(function(item, index) {
+                const card = document.createElement('div');
+                card.className = 'case-card';
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                card.innerHTML = `
+                    <div class="case-header">
+                        <span class="case-number">${item.number}</span>
+                        <h3 class="case-title">${item.title}</h3>
+                    </div>
+                    <div class="case-info">
+                        <div class="info-row">
+                            <span class="label">投稿聯絡人：</span>
+                            <span class="value">${item.contact}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">機構名稱：</span>
+                            <span class="value">${item.institution}</span>
+                        </div>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+                
+                // 延遲動畫
+                setTimeout(function() {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 200 * (index + 1));
+                
+                // 點擊效果
+                card.addEventListener('click', function() {
+                    // 移除其他卡片的高亮
+                    document.querySelectorAll('.case-card').forEach(function(c) {
+                        c.classList.remove('highlight');
+                    });
+                    
+                    // 高亮當前卡片
+                    this.classList.add('highlight');
+                    
+                    // 捲動到卡片頂部
+                    this.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                    
+                    // 5秒後移除高亮
+                    setTimeout(function() {
+                        card.classList.remove('highlight');
+                    }, 5000);
+                });
+            });
+        }
+
+        // 鍵盤導航支援
+        document.addEventListener('keydown', function(e) {
+            const cards = document.querySelectorAll('.case-card');
+            const currentHighlighted = document.querySelector('.case-card.highlight');
+            let currentIndex = currentHighlighted ? Array.from(cards).indexOf(currentHighlighted) : -1;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                currentIndex = (currentIndex + 1) % cards.length;
+                cards[currentIndex].click();
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                currentIndex = currentIndex <= 0 ? cards.length - 1 : currentIndex - 1;
+                cards[currentIndex].click();
+            }
+        });
+    </script>
+</body>
+</html>
