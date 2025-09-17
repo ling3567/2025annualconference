@@ -276,20 +276,26 @@
         
         .info-row {
             display: flex;
-            margin-bottom: 10px;
             align-items: flex-start;
+            margin-bottom: 10px;
+            gap: 6px;
+            flex-wrap: nowrap;
         }
-        
+
         .label {
             font-weight: 600;
             color: #2c3e50;
             min-width: 80px;
             flex-shrink: 0;
+            white-space: nowrap;
         }
-        
+
         .value {
             color: #555;
             font-weight: 500;
+            flex: 1;
+            min-width: 0;
+            word-break: break-word;
         }
         
         .committee-feedback {
@@ -431,19 +437,17 @@
             }
             
             .info-row {
-                flex-direction: column;
-                gap: 2px;
+                gap: 4px;
                 margin-bottom: 8px;
             }
-            
+
             .label {
                 min-width: auto;
                 font-size: 0.85rem;
             }
-            
+
             .value {
                 font-size: 0.85rem;
-                padding-left: 10px;
             }
             
             .feedback-text {

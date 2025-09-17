@@ -251,21 +251,27 @@
         
         .info-row {
             display: flex;
-            margin-bottom: 6px;
             align-items: flex-start;
+            margin-bottom: 6px;
+            gap: 6px;
             font-size: 0.85rem;
+            flex-wrap: nowrap;
         }
-        
+
         .label {
             font-weight: 600;
             color: #2c3e50;
             min-width: 65px;
             flex-shrink: 0;
+            white-space: nowrap;
         }
-        
+
         .value {
             color: #555;
             font-weight: 500;
+            flex: 1;
+            min-width: 0;
+            word-break: break-word;
         }
         
         .site-footer {
@@ -328,8 +334,9 @@
             .info-row {
                 font-size: 0.8rem;
                 margin-bottom: 5px;
+                gap: 4px;
             }
-            
+
             .label {
                 min-width: 60px;
             }
@@ -365,19 +372,17 @@
             }
             
             .info-row {
-                flex-direction: column;
-                gap: 2px;
+                gap: 4px;
                 margin-bottom: 4px;
             }
-            
+
             .label {
                 min-width: auto;
                 font-size: 0.75rem;
             }
-            
+
             .value {
                 font-size: 0.75rem;
-                padding-left: 10px;
             }
         }
         
