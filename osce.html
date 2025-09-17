@@ -79,21 +79,29 @@
             z-index: 1;
         }
 
-        .header-content {
-            max-width: 720px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 14px;
+        .page-title-wrapper {
+            position: relative;
+            display: inline-block;
+            margin: 0 auto 28px;
+            padding-left: clamp(96px, 20vw, 160px);
+            min-height: clamp(52px, 7vw, 76px);
         }
 
-        .header h1 {
-            font-size: 1.5rem;
+        .page-title {
+            font-size: clamp(2.25rem, 5vw, 3.25rem);
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .conference-title {
+            font-size: clamp(1.35rem, 2.2vw, 1.75rem);
             font-weight: 700;
-            margin-bottom: 0;
+            margin-bottom: 16px;
             line-height: 1.35;
             letter-spacing: 0.04em;
+            text-align: center;
         }
 
         .conference-theme {
@@ -133,17 +141,11 @@
             }
         }
 
-        .header .subtitle {
-            font-size: 0.92rem;
-            opacity: 0.85;
-            margin-top: 4px;
-            line-height: 1.5;
-        }
-        
-        .back-button {
+        .back-btn {
             position: absolute;
-            left: 20px;
-            top: 24px;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
             background: rgba(255,255,255,0.2);
             color: white;
             border: 2px solid rgba(255,255,255,0.3);
@@ -158,12 +160,36 @@
             gap: 8px;
         }
 
-        .back-button:hover {
+        .back-btn:hover,
+        .back-btn:focus {
             background: rgba(255,255,255,0.3);
             border-color: rgba(255,255,255,0.5);
             color: white;
             text-decoration: none;
-            transform: translateX(-2px);
+            transform: translate(-2px, -50%);
+        }
+
+        @media (max-width: 768px) {
+            .page-title-wrapper {
+                padding-left: clamp(84px, 26vw, 130px);
+                margin-bottom: 24px;
+            }
+
+            .back-btn {
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: clamp(1.9rem, 8vw, 2.4rem);
+            }
+
+            .page-title-wrapper {
+                padding-left: clamp(72px, 32vw, 120px);
+                min-height: 56px;
+            }
         }
         
         .content {
@@ -378,19 +404,6 @@
                 padding: 38px 16px 28px;
             }
 
-            .back-button {
-                position: relative;
-                left: 0;
-                top: 0;
-                margin-bottom: 16px;
-                margin-right: auto;
-                transform: none;
-            }
-
-            .header-content {
-                gap: 12px;
-            }
-
             .case-header {
                 padding: 12px 15px;
                 gap: 10px;
@@ -470,12 +483,12 @@
 <body>
     <div class="container">
         <div class="header">
-            <a href="index.html" class="back-button">← 返回主頁</a>
-            <div class="header-content">
-                <h1>台灣醫事聯合臨床技能發展學會<br>2025年會員大會暨學術研討會</h1>
-                <div class="conference-theme">數位轉型 × 跨域共融<wbr>　重塑臨床技能教育的新未來</div>
-                <div class="subtitle">臨床技能測驗(OSCE)優良教案</div>
+            <div class="page-title-wrapper">
+                <a href="index.html" class="back-btn">← 返回主頁</a>
+                <h1 class="page-title">臨床技能測驗(OSCE)優良教案</h1>
             </div>
+            <h2 class="conference-title">台灣醫事聯合臨床技能發展學會<br>2025年會員大會暨學術研討會</h2>
+            <div class="conference-theme">數位轉型 × 跨域共融<wbr>　重塑臨床技能教育的新未來</div>
         </div>
         
         <main class="content main-content">
