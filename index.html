@@ -31,7 +31,7 @@
             background: linear-gradient(140deg, rgba(31, 45, 61, 0.96) 0%, rgba(18, 35, 53, 0.97) 65%, rgba(11, 28, 48, 0.95) 100%);
             color: white;
             text-align: center;
-            padding: 45px 18px 60px;
+            padding: 45px 18px 36px;
             box-shadow: 0 12px 40px rgba(10, 25, 40, 0.35);
         }
 
@@ -50,7 +50,7 @@
         .header::after {
             content: '';
             position: absolute;
-            bottom: 20px;
+            bottom: 10px;
             left: 12%;
             width: 76%;
             height: 3px;
@@ -91,12 +91,24 @@
             padding: 0 14px 10px;
             font-size: 1.08rem;
             font-weight: 600;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.05em;
+            line-height: 1.5;
+            max-width: 19em;
+            width: 100%;
+            text-align: center;
+            word-break: keep-all;
             background: linear-gradient(95deg, #4fd1c5 0%, #63b3ed 50%, #4299e1 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 10px 30px rgba(79, 209, 197, 0.35);
+        }
+
+        @media (min-width: 768px) {
+            .conference-theme {
+                width: auto;
+                max-width: none;
+            }
         }
 
         .conference-theme::after {
@@ -356,7 +368,7 @@
     <div class="container">
         <div class="header">
             <h1>台灣醫事聯合臨床技能發展學會<br>2025年會員大會暨學術研討會</h1>
-            <div class="conference-theme">數位轉型 × 跨域共融　重塑臨床技能教育的新未來</div>
+            <div class="conference-theme">數位轉型 × 跨域共融<wbr>　重塑臨床技能教育的新未來</div>
             <div class="subtitle">學會研討會手冊</div>
         </div>
         
