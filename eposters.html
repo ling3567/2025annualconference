@@ -400,16 +400,12 @@
         </div>
         
         <main class="content main-content">
-            <div class="award-section">
-                💻 數位海報論文展示
-            </div>
-            
-            <div class="stats-section">
+            <input type="text" class="search-box" placeholder="🔍 搜尋論文標題、通訊作者或服務機構..." id="searchInput">
+
+            <div class="stats-section" hidden>
                 <h3>📊 統計資訊</h3>
                 <p>共收錄 62 篇 E-Poster 數位海報論文</p>
             </div>
-            
-            <input type="text" class="search-box" placeholder="🔍 搜尋論文題目、作者或機構..." id="searchInput">
             
             <div class="eposters-grid" id="epostersGrid">
                 <!-- E-Poster 卡片將由 JavaScript 動態生成 -->
@@ -594,11 +590,17 @@
             });
             
             // 更新統計資訊
-            const statsSection = document.querySelector('.stats-section p');
-            if (data.length === epostersData.length) {
-                statsSection.textContent = `共收錄 ${data.length} 篇 E-Poster 數位海報論文`;
-            } else {
-                statsSection.textContent = `找到 ${data.length} 篇符合條件的論文（共 ${epostersData.length} 篇）`;
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) {
+                statsSection.removeAttribute('hidden');
+                const statsText = statsSection.querySelector('p');
+                if (statsText) {
+                    if (data.length === epostersData.length) {
+                        statsText.textContent = `共收錄 ${data.length} 篇 E-Poster 數位海報論文`;
+                    } else {
+                        statsText.textContent = `找到 ${data.length} 篇符合條件的論文（共 ${epostersData.length} 篇）`;
+                    }
+                }
             }
         }
 
