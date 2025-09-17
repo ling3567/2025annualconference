@@ -78,7 +78,7 @@
             font-weight: 500;
         }
         
-        .back-btn {
+        .back-button {
             position: absolute;
             left: 20px;
             top: 50%;
@@ -97,7 +97,7 @@
             gap: 8px;
         }
         
-        .back-btn:hover {
+        .back-button:hover {
             background: rgba(255,255,255,0.3);
             border-color: rgba(255,255,255,0.5);
             color: white;
@@ -309,7 +309,7 @@
         
         /* 響應式設計 */
         @media (max-width: 768px) {
-            .back-btn {
+            .back-button {
                 position: relative;
                 left: auto;
                 top: auto;
@@ -411,8 +411,8 @@
     <div class="container">
         <div class="header">
             <div class="header-content">
-                <a href="#" class="back-btn" id="backButton">
-                    ← 返回主頁
+                <a href="index.html" class="back-button">
+                    ← 返回首頁
                 </a>
                 <h1>臨床技能測驗(OSCE)優良教案</h1>
                 <div class="subtitle">台灣醫事聯合臨床技能發展學會2025會員大會暨學術研討會</div>
@@ -471,20 +471,7 @@
             try {
                 // 渲染所有 OSCE 教案卡片
                 renderCases(casesData);
-                
-                // 返回按鈕功能
-                const backBtn = document.getElementById('backButton');
-                if (backBtn) {
-                    backBtn.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        if (document.referrer && document.referrer.includes(window.location.host)) {
-                            history.back();
-                        } else {
-                            window.location.href = 'index.html';
-                        }
-                    });
-                }
-                
+
             } catch (error) {
                 console.error('JavaScript執行錯誤:', error);
             }
