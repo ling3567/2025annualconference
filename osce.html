@@ -25,6 +25,14 @@
             background: white;
             min-height: 100vh;
             position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .header {
@@ -278,17 +286,25 @@
             margin-top: 8px;
         }
         
-        .footer {
-            background: #2c3e50;
-            color: white;
+        .site-footer {
+            background: #2D3E50;
+            color: #FFFFFF;
             text-align: center;
-            padding: 20px;
+            padding: 24px 15px;
+            font-size: 14px;
+            line-height: 1.6;
             margin-top: 40px;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
         }
-        
-        .footer p {
-            margin: 0;
-            opacity: 0.9;
+
+        .site-footer span {
+            display: block;
+        }
+
+        .site-footer .footer-secondary {
+            color: #CCCCCC;
+            margin-top: 4px;
         }
         
         /* 響應式設計 */
@@ -404,15 +420,16 @@
             </div>
         </div>
         
-        <div class="content">
+        <main class="content main-content">
             <div class="cases-grid" id="casesGrid">
                 <!-- OSCE 教案卡片將由 JavaScript 動態生成 -->
             </div>
-        </div>
-        
-        <div class="footer">
-            <p>© 2025 台灣醫事聯合技能發展學會 版權所有</p>
-        </div>
+        </main>
+
+        <footer class="site-footer">
+            <span>© 2025 台灣醫事聯合臨床技能發展學會 版權所有</span>
+            <span class="footer-secondary">2025年會員大會暨學術研討會｜奇美醫院第五醫療大樓5樓國際會議廳｜114年9月20日</span>
+        </footer>
     </div>
 
     <script>
