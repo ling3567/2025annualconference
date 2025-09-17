@@ -258,21 +258,25 @@
         
         .info-row {
             display: flex;
+            align-items: baseline;
             margin-bottom: 12px;
-            align-items: flex-start;
+            flex-wrap: wrap;
+            column-gap: 6px;
         }
-        
+
         .label {
             font-weight: 600;
             color: #2c3e50;
             min-width: 90px;
             flex-shrink: 0;
+            white-space: nowrap;
         }
-        
+
         .value {
             color: #555;
             font-weight: 500;
             line-height: 1.5;
+            min-width: 0;
         }
         
         .highlight-badge {
@@ -382,20 +386,13 @@
                 font-size: 0.9rem;
             }
             
-            .info-row {
-                flex-direction: column;
-                gap: 4px;
-                margin-bottom: 10px;
-            }
-            
             .label {
                 min-width: auto;
                 font-size: 0.85rem;
             }
-            
+
             .value {
                 font-size: 0.85rem;
-                padding-left: 10px;
             }
         }
         
