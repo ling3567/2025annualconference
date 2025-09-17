@@ -870,6 +870,10 @@
 
     <script>
         function showTab(tabName) {
+            if (tabName === 'membership') {
+                window.location.href = 'https://sub.chimei.org.tw/TSMCSD/index.php/vip/vip01';
+                return;
+            }
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => {
                 content.classList.remove('active');
@@ -903,6 +907,10 @@
         }
 
         function showTabProgrammatically(tabName) {
+            if (tabName === 'membership') {
+                window.location.href = 'https://sub.chimei.org.tw/TSMCSD/index.php/vip/vip01';
+                return;
+            }
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => {
                 content.classList.remove('active');
