@@ -123,37 +123,48 @@
             background: linear-gradient(90deg, rgba(79, 209, 197, 0.2), rgba(79, 209, 197, 0.8), rgba(99, 179, 237, 0.2));
         }
 
-        .header .subtitle {
-            font-size: 0.92rem;
-            opacity: 0.85;
+        .page-title-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
             margin-top: 18px;
         }
 
-        .back-btn {
-            position: absolute;
-            left: 18px;
-            top: 24px;
+        .header .subtitle {
+            font-size: clamp(2rem, 6vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            line-height: 1.2;
+            margin: 0;
+            color: #fff;
+            text-shadow: 0 6px 22px rgba(79, 209, 197, 0.4);
+        }
+
+        .header-back {
             background: rgba(255, 255, 255, 0.2);
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 10px 15px;
-            border-radius: 25px;
+            padding: 10px 16px;
+            border-radius: 999px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             transition: all 0.3s ease;
-            z-index: 2;
+            backdrop-filter: blur(4px);
+            white-space: nowrap;
         }
 
-        .back-btn:hover,
-        .back-btn:focus {
+        .header-back:hover,
+        .header-back:focus {
             background: rgba(255, 255, 255, 0.3);
             border-color: rgba(255, 255, 255, 0.5);
             color: white;
             transform: translateX(-2px);
+            text-decoration: none;
         }
 
         .content {
@@ -348,16 +359,13 @@
         
         /* 響應式設計 */
         @media (max-width: 768px) {
-            .header {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+            .page-title-wrapper {
+                gap: 12px;
             }
 
-            .back-btn {
-                position: static;
-                margin-bottom: 18px;
-                align-self: flex-start;
+            .header-back {
+                font-size: 0.9rem;
+                padding: 9px 14px;
             }
 
             .eposter-header {
@@ -395,7 +403,17 @@
                 padding-top: 28px;
             }
 
-            .header > *:not(.back-btn) {
+            .page-title-wrapper {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header-back {
+                font-size: 0.85rem;
+                padding: 8px 12px;
+            }
+
+            .header > *:not(.page-title-wrapper) {
                 width: 100%;
             }
 
@@ -451,24 +469,22 @@
 <body>
     <div class="container">
         <div class="header">
-            <a href="index.html" class="back-btn">← 返回主頁</a>
             <h1>台灣醫事聯合臨床技能發展學會<br>2025年會員大會暨學術研討會</h1>
             <div class="conference-theme">數位轉型 × 跨域共融<wbr>　重塑臨床技能教育的新未來</div>
-            <div class="subtitle">E-Poster</div>
+            <div class="page-title-wrapper">
+                <a href="index.html" class="header-back">← 返回主頁</a>
+                <div class="subtitle">E-Poster</div>
+            </div>
         </div>
 
         <main class="content main-content">
-            <div class="award-section">
-                💻 數位海報論文展示
-            </div>
-            
+            <input type="text" class="search-box" placeholder="🔍 搜尋論文題目、作者或機構..." id="searchInput">
+
             <div class="stats-section">
                 <h3>📊 統計資訊</h3>
-                <p>共收錄 62 篇 E-Poster 數位海報論文</p>
+                <p>共收錄 61 篇 E-Poster 數位海報論文</p>
             </div>
-            
-            <input type="text" class="search-box" placeholder="🔍 搜尋論文題目、作者或機構..." id="searchInput">
-            
+
             <div class="eposters-grid" id="epostersGrid">
                 <!-- E-Poster 卡片將由 JavaScript 動態生成 -->
             </div>
@@ -495,7 +511,6 @@
             { number: "EP-07", author: "陳雅婷", institution: "亞東紀念醫院", title: "運用人工智慧(AI)提升護理人員身體評估效率：縮短文書作業時間" },
             { number: "EP-08", author: "謝明祥", institution: "奇美醫院", title: "透過雲端E-Learning提升醫事放射實習生X光影像判讀能力" },
             { number: "EP-09", author: "黃建中", institution: "奇美醫院", title: "智慧教育：生成式AI打造個人學習歷程與分析建議" },
-            { number: "EP-10", author: "吳泰進", institution: "嘉義長庚紀念醫院", title: "客觀結構式臨床技能測驗(OSCE)考官評分一致性探討" },
             { number: "EP-11", author: "黃薪蓉", institution: "義大醫院", title: "情境式電影對提升乳房攝影全人照護之成效" },
             { number: "EP-12", author: "夏美玲", institution: "亞東紀念醫院", title: "運用多媒體影片指導最後一哩護理實習學生執行吞嚥評估之成效" },
             { number: "EP-13", author: "蔡玉梅", institution: "美和科技大學", title: "運用虛擬病人於病歷導讀教學之行動研究" },

@@ -87,12 +87,6 @@
             letter-spacing: 0.04em;
         }
 
-        .header .subtitle {
-            font-size: 0.92rem;
-            opacity: 0.85;
-            margin-top: 18px;
-        }
-
         .conference-theme {
             display: inline-block;
             position: relative;
@@ -130,25 +124,43 @@
             background: linear-gradient(90deg, rgba(79, 209, 197, 0.2), rgba(79, 209, 197, 0.8), rgba(99, 179, 237, 0.2));
         }
         
-        .back-btn {
-            position: absolute;
-            left: 18px;
-            top: 18px;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 2px solid rgba(255,255,255,0.3);
-            padding: 10px 15px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            display: flex;
+        .page-title-wrapper {
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 18px;
         }
 
-        .back-btn:hover {
+        .header .subtitle {
+            font-size: clamp(2rem, 6vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            line-height: 1.2;
+            margin: 0;
+            color: #fff;
+            text-shadow: 0 6px 22px rgba(99, 179, 237, 0.4);
+        }
+
+        .header-back {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 16px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+            white-space: nowrap;
+        }
+
+        .header-back:hover,
+        .header-back:focus {
             background: rgba(255,255,255,0.3);
             border-color: rgba(255,255,255,0.5);
             color: white;
@@ -363,12 +375,16 @@
         /* 響應式設計 */
         @media (max-width: 768px) {
             .header {
-                padding-top: 70px;
+                padding-top: 45px;
             }
 
-            .back-btn {
-                left: 12px;
-                top: 12px;
+            .page-title-wrapper {
+                gap: 12px;
+            }
+
+            .header-back {
+                font-size: 0.9rem;
+                padding: 9px 14px;
             }
 
             .poster-header {
@@ -406,6 +422,20 @@
         }
         
         @media (max-width: 480px) {
+            .page-title-wrapper {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header-back {
+                font-size: 0.85rem;
+                padding: 8px 12px;
+            }
+
+            .header > *:not(.page-title-wrapper) {
+                width: 100%;
+            }
+
             .content {
                 padding: 15px;
             }
@@ -459,10 +489,12 @@
 <body>
     <div class="container">
         <div class="header">
-            <a href="index.html" class="back-btn" id="backButton">← 返回主頁</a>
             <h1>台灣醫事聯合臨床技能發展學會<br>2025年會員大會暨學術研討會</h1>
             <div class="conference-theme">數位轉型 × 跨域共融<wbr>　重塑臨床技能教育的新未來</div>
-            <div class="subtitle">優秀海報論文</div>
+            <div class="page-title-wrapper">
+                <a href="index.html" class="header-back">← 返回主頁</a>
+                <div class="subtitle">優秀海報論文</div>
+            </div>
         </div>
         
         <main class="content main-content">
