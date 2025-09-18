@@ -134,21 +134,25 @@
         }
 
         .page-title-wrapper {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 16px;
-            margin-top: 0;
+            gap: 14px;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 520px;
         }
 
         .header .subtitle {
-            font-size: clamp(2rem, 6vw, 2.8rem);
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            line-height: 1.2;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            line-height: 1.35;
             margin: 0;
             color: #fff;
             text-shadow: 0 6px 22px rgba(142, 68, 173, 0.4);
+            min-width: 0;
+            text-align: center;
         }
 
         .header-back {
@@ -166,6 +170,7 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(4px);
             white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .header-back:hover,
@@ -391,6 +396,7 @@
 
             .page-title-wrapper {
                 gap: 12px;
+                max-width: 480px;
             }
 
             .header-back {
@@ -433,8 +439,8 @@
         
         @media (max-width: 480px) {
             .page-title-wrapper {
-                flex-direction: column;
                 gap: 10px;
+                max-width: 100%;
             }
 
             .header-back {
@@ -444,6 +450,10 @@
 
             .header-content > *:not(.page-title-wrapper) {
                 width: 100%;
+            }
+
+            .header .subtitle {
+                font-size: 1.5rem;
             }
 
             .content {
