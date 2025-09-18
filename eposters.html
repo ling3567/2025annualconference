@@ -123,93 +123,13 @@
             background: linear-gradient(90deg, rgba(79, 209, 197, 0.2), rgba(79, 209, 197, 0.8), rgba(99, 179, 237, 0.2));
         }
 
-        .tabs {
-            display: flex;
-            background: #f8f9fa;
-            border-bottom: 1px solid #ddd;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .tab {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px 12px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #666;
-            text-decoration: none;
-            border-bottom: 3px solid transparent;
-            white-space: nowrap;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .tab:hover,
-        .tab:focus {
-            color: #2c3e50;
-            background: rgba(52, 152, 219, 0.08);
-        }
-
-        .tab:focus-visible {
-            outline: 2px solid #3498db;
-            outline-offset: 2px;
-        }
-
-        .tab.active {
-            color: #2c3e50;
-            border-bottom-color: #3498db;
-            background: white;
-        }
-
-        .page-title-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            margin: 18px auto 0;
-            width: 100%;
-            max-width: 520px;
-        }
-
         .header .subtitle {
             font-size: 1.5rem;
             font-weight: 700;
-            letter-spacing: 0.05em;
-            line-height: 1.35;
-            margin: 0;
+            opacity: 0.95;
+            margin-top: 18px;
             color: #fff;
-            text-shadow: 0 6px 22px rgba(79, 209, 197, 0.4);
-            min-width: 0;
-            text-align: center;
-        }
-
-        .header-back {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 10px 16px;
-            border-radius: 999px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(4px);
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .header-back:hover,
-        .header-back:focus {
-            background: rgba(255, 255, 255, 0.3);
-            border-color: rgba(255, 255, 255, 0.5);
-            color: white;
-            transform: translateX(-2px);
-            text-decoration: none;
+            letter-spacing: 0.05em;
         }
 
         .content {
@@ -404,24 +324,6 @@
         
         /* 響應式設計 */
         @media (max-width: 768px) {
-            .page-title-wrapper {
-                gap: 12px;
-                max-width: 480px;
-            }
-
-            .tabs {
-                flex-wrap: nowrap;
-            }
-
-            .tab {
-                padding: 12px 10px;
-                font-size: 0.8rem;
-            }
-
-            .header-back {
-                font-size: 0.9rem;
-                padding: 9px 14px;
-            }
 
             .eposter-header {
                 padding: 10px 12px;
@@ -456,20 +358,6 @@
         @media (max-width: 480px) {
             .header {
                 padding-top: 28px;
-            }
-
-            .page-title-wrapper {
-                gap: 10px;
-                max-width: 100%;
-            }
-
-            .header-back {
-                font-size: 0.85rem;
-                padding: 8px 12px;
-            }
-
-            .header > *:not(.page-title-wrapper) {
-                width: 100%;
             }
 
             .header .subtitle {
@@ -535,10 +423,7 @@
         <div class="header">
             <h1>台灣醫事聯合臨床技能發展學會<br>2025年會員大會暨學術研討會</h1>
             <div class="conference-theme">數位轉型 × 跨域共融<wbr>　重塑臨床技能教育的新未來</div>
-            <div class="page-title-wrapper">
-                <a href="index.html" class="header-back">← 返回主頁</a>
-                <div class="subtitle">E-Poster</div>
-            </div>
+            <div class="subtitle">E-Poster</div>
         </div>
 
         <main class="main-content">
