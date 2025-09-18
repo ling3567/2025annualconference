@@ -123,7 +123,47 @@
             height: 2px;
             background: linear-gradient(90deg, rgba(79, 209, 197, 0.2), rgba(79, 209, 197, 0.8), rgba(99, 179, 237, 0.2));
         }
-        
+
+        .tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tab {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #666;
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .tab:hover,
+        .tab:focus {
+            color: #2c3e50;
+            background: rgba(52, 152, 219, 0.08);
+        }
+
+        .tab:focus-visible {
+            outline: 2px solid #3498db;
+            outline-offset: 2px;
+        }
+
+        .tab.active {
+            color: #2c3e50;
+            border-bottom-color: #3498db;
+            background: white;
+        }
+
         .page-title-wrapper {
             display: flex;
             align-items: center;
@@ -507,12 +547,24 @@
             </div>
         </div>
         
-        <main class="content main-content">
-            <div class="award-section">
-                🏆 入選優秀海報論文 - 含評審意見
-            </div>
-            
-            <div class="posters-grid">
+        <main class="main-content">
+            <nav class="tabs" aria-label="頁籤導覽">
+                <a class="tab" href="index.html#schedule">議程</a>
+                <a class="tab" href="index.html#speakers">講師簡歷</a>
+                <a class="tab" href="index.html#posters">實體海報論文</a>
+                <a class="tab active" href="posters02.html" aria-current="page">優秀海報論文</a>
+                <a class="tab" href="eposters.html">E-Poster</a>
+                <a class="tab" href="osce.html">OSCE教案</a>
+                <a class="tab" href="https://sub.chimei.org.tw/TSMCSD/index.php/vip/vip01" target="_blank" rel="noopener">入會說明</a>
+                <a class="tab" href="index.html#survey">滿意度調查</a>
+            </nav>
+
+            <div class="content">
+                <div class="award-section">
+                    🏆 入選優秀海報論文 - 含評審意見
+                </div>
+
+                <div class="posters-grid">
                 <div class="poster-card">
                     <div class="poster-header">
                         <span class="poster-number">01</span>
@@ -862,6 +914,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </main>
 
