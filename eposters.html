@@ -123,53 +123,13 @@
             background: linear-gradient(90deg, rgba(79, 209, 197, 0.2), rgba(79, 209, 197, 0.8), rgba(99, 179, 237, 0.2));
         }
 
-        .page-title-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            margin: 18px auto 0;
-            width: 100%;
-            max-width: 520px;
-        }
-
         .header .subtitle {
             font-size: 1.5rem;
             font-weight: 700;
-            letter-spacing: 0.05em;
-            line-height: 1.35;
-            margin: 0;
+            opacity: 0.95;
+            margin-top: 18px;
             color: #fff;
-            text-shadow: 0 6px 22px rgba(79, 209, 197, 0.4);
-            min-width: 0;
-            text-align: center;
-        }
-
-        .header-back {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 10px 16px;
-            border-radius: 999px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(4px);
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .header-back:hover,
-        .header-back:focus {
-            background: rgba(255, 255, 255, 0.3);
-            border-color: rgba(255, 255, 255, 0.5);
-            color: white;
-            transform: translateX(-2px);
-            text-decoration: none;
+            letter-spacing: 0.05em;
         }
 
         .content {
@@ -364,15 +324,6 @@
         
         /* 響應式設計 */
         @media (max-width: 768px) {
-            .page-title-wrapper {
-                gap: 12px;
-                max-width: 480px;
-            }
-
-            .header-back {
-                font-size: 0.9rem;
-                padding: 9px 14px;
-            }
 
             .eposter-header {
                 padding: 10px 12px;
@@ -403,24 +354,10 @@
                 min-width: 60px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .header {
                 padding-top: 28px;
-            }
-
-            .page-title-wrapper {
-                gap: 10px;
-                max-width: 100%;
-            }
-
-            .header-back {
-                font-size: 0.85rem;
-                padding: 8px 12px;
-            }
-
-            .header > *:not(.page-title-wrapper) {
-                width: 100%;
             }
 
             .header .subtitle {
@@ -468,6 +405,11 @@
             .value {
                 font-size: 0.75rem;
             }
+
+            .tab {
+                padding: 10px 8px;
+                font-size: 0.75rem;
+            }
         }
         
         .highlight {
@@ -481,22 +423,8 @@
         <div class="header">
             <h1>台灣醫事聯合臨床技能發展學會<br>2025年會員大會暨學術研討會</h1>
             <div class="conference-theme">數位轉型 × 跨域共融<wbr>　重塑臨床技能教育的新未來</div>
-            <div class="page-title-wrapper">
-                <a href="index.html" class="header-back">← 返回主頁</a>
-                <div class="subtitle">E-Poster</div>
-            </div>
+            <div class="subtitle">E-Poster</div>
         </div>
-
-        <main class="content main-content">
-            <input type="text" class="search-box" placeholder="🔍 搜尋論文題目、通訊作者或服務機構..." id="searchInput">
-
-            <div class="stats-section">
-                <h3>📊 統計資訊</h3>
-                <p>共收錄 61 篇 E-Poster 數位海報論文</p>
-            </div>
-
-            <div class="eposters-grid" id="epostersGrid">
-                <!-- E-Poster 卡片將由 JavaScript 動態生成 -->
             </div>
         </main>
 
