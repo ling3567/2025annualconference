@@ -261,6 +261,19 @@
             box-shadow: 0 4px 8px rgba(231, 76, 60, 0.4);
         }
 
+        .lecture-btn.lecture-btn-disabled {
+            background: #bdc3c7;
+            color: #ffffff;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .lecture-btn.lecture-btn-disabled:hover {
+            background: #bdc3c7;
+            transform: none;
+            box-shadow: none;
+        }
+
         .poster-download-wrapper {
             display: flex;
             justify-content: center;
@@ -554,7 +567,7 @@
                     <div class="schedule-title">從敘事醫學到情境模擬：強化臨床同理心與人文關懷能力</div>
                     <div class="schedule-speaker">講師：<a href="javascript:void(0)" class="speaker-link" onclick="showSpeaker('黃淑芬')">黃淑芬 組長</a>／奇美醫院藥劑部</div>
                     <div class="schedule-speaker">座長：陳官琳 理事／成功大學職能治療學系教授</div>
-                    <button class="lecture-btn" onclick="downloadLecture('黃淑芬_從敘事醫學到情境模擬')">📄 課程講義</button>
+                    <button class="lecture-btn lecture-btn-disabled" disabled>未提供課程簡報</button>
                 </div>
             </div>
             
