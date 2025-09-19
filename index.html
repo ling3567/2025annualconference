@@ -1080,11 +1080,12 @@
         }
 
         function downloadPosterAbstracts() {
-            alert('正在準備下載「實體海報論文摘要」...\n\n請聯繫會務人員取得摘要檔案。');
-            
-            // 實際應用時可以替換為：
-            // window.open('/downloads/實體海報論文摘要.pdf', '_blank');
-            // 或者連接到檔案下載API
+            const downloadUrl = 'https://drive.google.com/file/d/1PJBnE8_U_Ot45c1HtFKOYLzU6263VyM4/view?usp=drive_link';
+            const newWindow = window.open(downloadUrl, '_blank', 'noopener,noreferrer');
+
+            if (newWindow) {
+                newWindow.opener = null;
+            }
         }
 
         function downloadLecture(lectureId) {
