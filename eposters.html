@@ -727,7 +727,12 @@
         }
 
         function downloadEposterAbstracts() {
-            alert('正在準備下載「E-Poster 摘要全文」...\n\n請聯繫會務人員取得摘要檔案。');
+            const url = 'https://drive.google.com/file/d/1A7zGLWVQCbt0wQdL5beXqp47hs-SbZFu/view?usp=drive_link';
+            const newWindow = window.open(url, '_blank', 'noopener');
+
+            if (newWindow) {
+                newWindow.opener = null;
+            }
         }
 
         // 鍵盤導航支援
