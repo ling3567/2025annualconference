@@ -535,13 +535,15 @@
         const casesData = [
             {
                 number: "01",
-                contact: "謝梨君",
+                contactLabel: "投稿團隊",
+                contact: "賴郁芬、林佳儀、謝梨君",
                 institution: "中山醫學大學附設醫院",
                 title: "肌少症運動處方之全人照護"
             },
             {
                 number: "02",
-                contact: "陳璟綺",
+                contactLabel: "投稿團隊",
+                contact: "陳璟綺、劉天慧、張鈴艷、連鴻斌、江盷真",
                 institution: "奇美醫院",
                 title: "中風後吞嚥困難之復健團隊全人照護"
             },
@@ -592,7 +594,7 @@
                     </div>
                     <div class="case-info">
                         <div class="info-row">
-                            <span class="label">投稿聯絡人：</span>
+                            <span class="label">${item.contactLabel || '投稿聯絡人'}：</span>
                             <span class="value">${item.contact}</span>
                         </div>
                         <div class="info-row">
