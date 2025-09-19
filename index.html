@@ -261,6 +261,13 @@
             box-shadow: 0 4px 8px rgba(231, 76, 60, 0.4);
         }
 
+        .poster-download-wrapper {
+            display: flex;
+            justify-content: center;
+            padding: 0 15px;
+            margin-bottom: 12px;
+        }
+
         .poster-download-btn {
             display: inline-flex;
             align-items: center;
@@ -268,7 +275,6 @@
             width: 100%;
             max-width: 320px;
             padding: 12px 20px;
-            margin-bottom: 12px;
             font-size: 0.95rem;
             font-weight: 700;
             color: #ffffff;
@@ -720,10 +726,13 @@
         
         <div id="posters" class="tab-content">
 
+            <div class="poster-download-wrapper">
+                <button type="button" class="poster-download-btn" onclick="downloadPosterAbstracts()">下載摘要全文</button>
+            </div>
+
             <div class="schedule-item">
                 <div class="schedule-time">01</div>
                 <div class="schedule-content">
-                    <button type="button" class="poster-download-btn" onclick="downloadPosterAbstracts()">下載摘要全文</button>
                     <div class="schedule-title">高擬真模擬教學與跨域團隊合作：結合OSCE與EPAs建構心臟術後照護新實踐</div>
                     <div class="schedule-speaker">通訊作者：郭函瑜</div>
                     <div class="schedule-speaker">服務機構：亞東紀念醫院</div>
