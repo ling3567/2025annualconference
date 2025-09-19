@@ -254,13 +254,45 @@
             transition: all 0.3s ease;
             box-shadow: 0 2px 4px rgba(231, 76, 60, 0.3);
         }
-        
+
         .lecture-btn:hover {
             background: linear-gradient(135deg, #c0392b, #a93226);
             transform: translateY(-1px);
             box-shadow: 0 4px 8px rgba(231, 76, 60, 0.4);
         }
-        
+
+        .poster-download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 320px;
+            padding: 12px 20px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(135deg, #4fd1c5, #3498db);
+            border: none;
+            border-radius: 999px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 12px 24px rgba(52, 152, 219, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+        }
+
+        .poster-download-btn:hover,
+        .poster-download-btn:focus {
+            filter: brightness(1.07);
+            transform: translateY(-1px);
+            box-shadow: 0 14px 28px rgba(79, 209, 197, 0.25);
+        }
+
+        .poster-download-btn:focus-visible {
+            outline: 3px solid rgba(79, 209, 197, 0.55);
+            outline-offset: 3px;
+        }
+
         .survey-btn {
             display: inline-block;
             background: linear-gradient(135deg, #27ae60, #2ecc71);
@@ -691,6 +723,7 @@
             <div class="schedule-item">
                 <div class="schedule-time">01</div>
                 <div class="schedule-content">
+                    <button type="button" class="poster-download-btn" onclick="downloadPosterAbstracts()">下載摘要全文</button>
                     <div class="schedule-title">高擬真模擬教學與跨域團隊合作：結合OSCE與EPAs建構心臟術後照護新實踐</div>
                     <div class="schedule-speaker">通訊作者：郭函瑜</div>
                     <div class="schedule-speaker">服務機構：亞東紀念醫院</div>
